@@ -1,0 +1,93 @@
+<!doctype html>
+<html>
+<head>
+<link href="/images/review.css" rel="stylesheet" type="text/css" >
+<link href="/images/review1.css" rel="stylesheet" type="text/css" >
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+</head>
+<body>
+<nav class="navbar navbar-default  navbar-fixed-top">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="/">Restaurant Table Booking</a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+ 
+     <ul class="nav navbar-nav">
+       <li><a href="/">Home</a></li>
+          </ul>
+    </div>
+  </div>
+</nav>
+<br><br><br>
+<% for(var j=0;j<reviewinfo.length;j++){ %>
+<div class="rv">
+<h3 class="name">"<%= reviewinfo[j].resname %>"</h3>
+<p>This restaurant is in the city of <%= reviewinfo[j].rescity %>
+It ha sthe following review from the customers - <%= reviewinfo[j].resreview %></p>
+<p>This review was on date : <%= reviewinfo[j].resdate %> on time 
+ <%= reviewinfo[j].restime %></p>
+</div>
+<img src="/images/stars.png" id="img">
+<% } %>
+<div class="container1">
+  <img src="/images/user.png">
+  <form action="/addreview" method="post">
+    <div class="row">
+      <div class="col-25">
+        <label for="fname" > Rst City</label>
+      </div>
+      <div class="col-75">
+        <input type="text" id="fname" name="restcity" >
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-25">
+        <label for="lname"> Rst Name</label>
+      </div>
+      <div class="col-75">
+        <input type="text" id="lname" name="restname">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-25">
+        <label for="lname"> Time</label>
+      </div>
+      <div class="col-75">
+        <input type="text" id="lname" name="resttime">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-25">
+        <label for="lname"> Date</label>
+      </div>
+      <div class="col-75">
+        <input type="text" id="lname" name="restdate" >
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-25">
+        <label for="subject">Review</label>
+      </div>
+      <div class="col-75">
+        <textarea id="subject" name="restreview"></textarea>
+      </div>
+    </div>
+    <div class="row">
+      <input type='submit' value="Submit">
+    </div>
+  </form>
+</div>
+</body>
+</html>
